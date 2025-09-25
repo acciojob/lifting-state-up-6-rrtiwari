@@ -3,15 +3,14 @@ import React, { useState } from "react";
 import TodoList from "./TodoList";
 
 function App() {
-  var [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Practice Node.js", completed: false },
-    { id: 3, text: "Build a Project", completed: false }
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Learn React", completed: false }
   ]);
 
   function handleComplete(id) {
+    var idStr = String(id);
     var updatedTodos = todos.map(function(todo) {
-      if (todo.id === id) {
+      if (String(todo.id) === idStr) {
         return { id: todo.id, text: todo.text, completed: true };
       } else {
         return todo;
@@ -29,6 +28,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
