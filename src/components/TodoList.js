@@ -1,13 +1,13 @@
 import React from "react";
 
-function TodoList({ todos, completeTodo }) {
+function TodoList({ todos, onComplete }) {
   return (
     <ul>
       {todos.map(todo => (
-        <li key={todo.id}>
-          {todo.text}
+        <li key={todo.id} style={{ marginBottom: "10px" }}>
+          {todo.text}{" "}
           {!todo.completed && (
-            <button onClick={() => completeTodo(todo.id)}>Complete</button>
+            <button onClick={() => onComplete(todo.id)}>Complete</button>
           )}
         </li>
       ))}
@@ -16,6 +16,7 @@ function TodoList({ todos, completeTodo }) {
 }
 
 export default TodoList;
+
 
 
 
