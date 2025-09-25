@@ -3,35 +3,22 @@ import React from "react";
 function TodoList(props) {
   return (
     <ul>
-      {props.todos.map((todo) => {
-        let buttonElement;
-
-        function handleClick() {
-          props.handleComplete(todo.id);
-        }
-
-        if (todo.completed) {
-          buttonElement = null;
-        } else {
-          buttonElement = (
-            <button onClick={handleClick}>
+      {props.todos.map((todo) => (
+        <li key={todo.id}>
+          <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+            {todo.text}
+          </span>
+          {todo.completed === false ? (
+            <button onClick={function() { props.handleComplete(todo.id); }}>
               Complete
             </button>
-          );
-        }
-
-        return (
-          <li key={todo.id}>
-            <span>
-              {todo.text}
-            </span>
-            {buttonElement}
-          </li>
-        );
-      })}
+          ) : null}
+        </li>
+      ))}
     </ul>
   );
 }
 
 export default TodoList;
+
 
