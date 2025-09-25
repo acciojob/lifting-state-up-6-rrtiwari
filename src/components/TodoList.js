@@ -6,9 +6,7 @@ function TodoList(props) {
       {props.todos.map(function(todo) {
         return (
           <li key={todo.id}>
-            <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-              {todo.text}
-            </span>
+            <span>{todo.text}</span>
             {todo.completed === false ? (
               <button onClick={function() { props.handleComplete(todo.id); }}>
                 Complete
@@ -22,6 +20,7 @@ function TodoList(props) {
 }
 
 export default TodoList;
+
 
 
 
