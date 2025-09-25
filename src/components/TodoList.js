@@ -2,7 +2,7 @@ import React from "react";
 
 function TodoList(props) {
   return (
-    <div>
+    <ul>
       {props.todos.map((todo) => {
         let buttonElement;
 
@@ -17,13 +17,13 @@ function TodoList(props) {
         }
 
         return (
-          <div key={todo.id}>
+          <li key={todo.id}>
             <span>{todo.text}</span>
             {buttonElement}
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
