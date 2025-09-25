@@ -10,14 +10,14 @@ function App() {
   ]);
 
   function handleComplete(id) {
-    // Create a new array and mark the clicked todo as completed
     const updatedTodos = todos.map(function(todo) {
       if (todo.id === id) {
-        return { ...todo, completed: true };
+        return { id: todo.id, text: todo.text, completed: true };
       } else {
         return todo;
       }
     });
+
     setTodos(updatedTodos);
   }
 
@@ -30,6 +30,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
