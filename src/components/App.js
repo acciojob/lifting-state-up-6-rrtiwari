@@ -12,7 +12,7 @@ function App() {
   function handleComplete(id) {
     const updatedTodos = todos.map(function(todo) {
       if (todo.id === id) {
-        return { id: todo.id, text: todo.text, completed: true };
+        return { ...todo, completed: true };
       } else {
         return todo;
       }
@@ -30,6 +30,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
