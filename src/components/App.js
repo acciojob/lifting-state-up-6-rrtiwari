@@ -10,13 +10,14 @@ function App() {
   ]);
 
   function handleComplete(id) {
-    const newTodos = todos.map(todo => {
+    const updatedTodos = todos.map(function(todo) {
       if (todo.id === id) {
-        return { ...todo, completed: true };
+        return { id: todo.id, text: todo.text, completed: true };
+      } else {
+        return todo;
       }
-      return todo;
     });
-    setTodos(newTodos);
+    setTodos(updatedTodos);
   }
 
   return (
@@ -28,6 +29,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
