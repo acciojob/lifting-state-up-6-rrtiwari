@@ -4,30 +4,31 @@ import TodoList from "./TodoList";
 
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false }
+    { id: 1, text: "Learn React", completed: false },
+    { id: 2, text: "Practice JavaScript", completed: false },
+    { id: 3, text: "Build a Todo App", completed: false }
   ]);
 
-  function handleComplete(id) {
-    var idStr = String(id);
-    var updatedTodos = todos.map(function(todo) {
-      if (String(todo.id) === idStr) {
-        return { id: todo.id, text: todo.text, completed: true };
-      } else {
-        return todo;
-      }
-    });
-    setTodos(updatedTodos);
-  }
+  const completeTodo = (id) => {
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === id ? { ...todo, completed: true } : todo
+      )
+    );
+  };
 
   return (
     <div>
-      <h2>Todo List</h2>
-      <TodoList todos={todos} handleComplete={handleComplete} />
+      <h1>Todo App</h1>
+      <TodoList todos={todos} completeTodo={completeTodo} />
     </div>
   );
 }
 
 export default App;
+
+
+
 
 
 
