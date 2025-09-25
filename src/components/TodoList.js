@@ -13,12 +13,18 @@ function TodoList(props) {
         if (todo.completed) {
           buttonElement = null;
         } else {
-          buttonElement = <button onClick={handleClick}>Complete</button>;
+          buttonElement = (
+            <button onClick={handleClick}>
+              Complete
+            </button>
+          );
         }
 
         return (
           <li key={todo.id}>
-            <span>{todo.text}</span>
+            <span>
+              {todo.text}
+            </span>
             {buttonElement}
           </li>
         );
@@ -28,3 +34,4 @@ function TodoList(props) {
 }
 
 export default TodoList;
+
