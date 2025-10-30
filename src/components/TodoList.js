@@ -1,29 +1,18 @@
-import React from "react";
+import React from 'react'
 
-const TodoList = (props) => {
-  const task = props.task;
-  const settask = props.settask;
-  const handleComplete = (id) => {
-    const updatedtask = task.map((task) =>
-      task.id === id ? { ...task, completed: true } : task
-    );
-    settask(updatedtask);
-  };
-
+const TodoList = ({todos, setTodos, handleComplete}) => {
   return (
     <div>
-      <ul>
-        {task.map((item) => (
-          <li key={item.id}>
-            {item.title}
-            {!item.completed && (
-              <button onClick={() => handleComplete(item.id)}>Complete</button>
-            )}
-          </li>
-        ))}
-      </ul>
+        <h1>Child Component</h1>
+        <ul>
+            {todos.map((item, index) => {
+                return <li>{item.text}{!item.isCompleted && <button onClick={() => {
+                    handleComplete(index)
+                }}>Complete</button>}</li>
+            })}
+        </ul>
     </div>
-  );
-};
+  )
+}
 
-export default TodoList;
+export default TodoList
