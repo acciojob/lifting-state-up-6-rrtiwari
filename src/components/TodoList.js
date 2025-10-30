@@ -1,31 +1,29 @@
 import React from "react";
 
-function TodoList({ todos, onComplete }) {
+const TodoList = (props) => {
+  const task = props.task;
+  const settask = props.settask;
+  const handleComplete = (id) => {
+    const updatedtask = task.map((task) =>
+      task.id === id ? { ...task, completed: true } : task
+    );
+    settask(updatedtask);
+  };
+
   return (
-    <ul>
-      {todos.map(todo => (
-        <li key={todo.id} style={{ marginBottom: "10px" }}>
-          {todo.text}{" "}
-          {!todo.completed && (
-            <button onClick={() => onComplete(todo.id)}>Complete</button>
-          )}
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul>
+        {task.map((item) => (
+          <li key={item.id}>
+            {item.title}
+            {!item.completed && (
+              <button onClick={() => handleComplete(item.id)}>Complete</button>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
 export default TodoList;
-
-
-
-
-
-
-
-
-
-
-
-
-

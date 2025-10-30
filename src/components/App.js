@@ -1,43 +1,22 @@
-
 import React, { useState } from "react";
+import "./../styles/App.css";
 import TodoList from "./TodoList";
 
-function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build Todo App", completed: false },
-    { id: 3, text: "Master Lifting State Up", completed: false }
+const App = () => {
+  const [task, settask] = useState([
+    { id: 1, title: "Learn React", completed: false },
+    { id: 2, title: "Build a React app", completed: false },
+    { id: 3, title: "Deploy the React app", completed: false },
   ]);
-
-  const markComplete = (id) => {
-    setTodos(
-      todos.map(todo =>
-        todo.id === id ? { ...todo, completed: true } : todo
-      )
-    );
-  };
 
   return (
     <div>
-      <h2>Todo App</h2>
-      <TodoList todos={todos} onComplete={markComplete} />
+      <h1>Parent Component</h1>
+      <h2>Child Component</h2>
+
+      <TodoList task={task} settask={settask} />
     </div>
   );
-}
+};
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
